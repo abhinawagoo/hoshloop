@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 
 /* ─── Nav ─────────────────────────────────────────────────────────── */
 
@@ -80,12 +81,14 @@ function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#book"
+            onClick={() => posthog.capture("book_call_clicked")}
             className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-[14px] font-medium text-white transition-colors hover:bg-accent-hover"
           >
             Book a strategy call
           </a>
           <a
             href="#blueprint"
+            onClick={() => posthog.capture("ai_blueprint_clicked")}
             className="inline-flex h-11 items-center rounded-full border border-neutral-200 px-6 text-[14px] font-medium text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-neutral-50"
           >
             Get free AI Blueprint
